@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
-    private List<User> usersList = new ArrayList<>();
+    private static List<User> usersList = new ArrayList<>();
 
-    private int count;
+    private static int count;
 
     @Override
     public User save(User user) {
@@ -63,6 +63,11 @@ public class UserRepositoryImpl implements UserRepository {
                 return user;
             }
         }
+        return null;
+    }
+
+    public User findUserName(String userName) {
+        for(var user : usersList) if(user.getUserName().equalsIgnoreCase(userName)) return user;
         return null;
     }
 }

@@ -8,4 +8,7 @@ public interface UserRepository {
     void deleteAll();
     long count();
     User findById(int id);
+
+    User findUserName(String userName);
+
 }

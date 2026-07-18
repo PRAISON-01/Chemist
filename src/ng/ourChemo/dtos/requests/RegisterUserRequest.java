@@ -1,27 +1,9 @@
-package ng.ourChemo.data.models;
+package ng.ourChemo.dtos.requests;
 
-public class User {
-    private int id;
+public class RegisterUserRequest {
     private String userName;
     private String password;
     private String fullName;
-    private boolean isLoggedIn;
-
-    public boolean isLoggedIn() {
-        return isLoggedIn;
-    }
-
-    public void setLoggedIn(boolean loggedIn) {
-        isLoggedIn = loggedIn;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUserName() {
         return userName;
