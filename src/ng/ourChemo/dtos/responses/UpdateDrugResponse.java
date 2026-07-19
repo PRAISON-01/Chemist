@@ -1,23 +1,22 @@
-package ng.ourChemo.data.models;
+package ng.ourChemo.dtos.responses;
 
-import java.time.LocalDate;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
-public class Drug {
+public class UpdateDrugResponse {
     private String drugName;
     private String brand;
-    private LocalDate expiryDate;
     private BigDecimal price;
-    private int id;
     private String description;
-    private int quantity;
+    private LocalDate expiryDate;
+    private int id;
 
-    public int getQuantity() {
-        return quantity;
+    public int getId() {
+        return id;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDrugName() {
@@ -36,28 +35,12 @@ public class Drug {
         this.brand = brand;
     }
 
-    public LocalDate getExpiryDate() {
-        return expiryDate;
-    }
-
-    public void setExpiryDate(LocalDate expiryDate) {
-        this.expiryDate = expiryDate;
-    }
-
     public BigDecimal getPrice() {
         return price;
     }
 
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDescription() {
@@ -67,4 +50,13 @@ public class Drug {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public LocalDate getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(LocalDate expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
 }

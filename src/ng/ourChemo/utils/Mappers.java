@@ -30,6 +30,7 @@ public class Mappers {
         drug.setPrice(addDrugRequest.getPrice());
         drug.setDescription(addDrugRequest.getDescription());
         drug.setExpiryDate(addDrugRequest.getExpiryDate());
+        drug.setQuantity(addDrugRequest.getQuantity());
         return drug;
     }
 
@@ -42,7 +43,9 @@ public class Mappers {
         addDrugResponse.setPrice(drug.getPrice());
         addDrugResponse.setDescription(drug.getDescription());
         addDrugResponse.setExpiryDate(drug.getExpiryDate());
+        addDrugResponse.setQuantity(drug.getQuantity());
         return addDrugResponse;
     }
+
 
 }

@@ -4,17 +4,18 @@ import ng.ourChemo.data.models.Drug;
 import org.junit.jupiter.api.Test;
 
 
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DrugRepositoryTest {
 
     @Test
-    public void newDispensedDrugsRepositoryCanSaveDispensedDrugs() {
+    public void newDrugRepositoryCanSavedrug() {
         DrugRepository drugRepository = new DrugRepositoryImpl();
-        Drug dispensedDrugs = new Drug();
+        Drug drug = new Drug();
 
-        assertEquals(dispensedDrugs, drugRepository.save(dispensedDrugs));
+        assertEquals(drug, drugRepository.save(drug));
     }
 
 
@@ -30,7 +31,6 @@ public class DrugRepositoryTest {
 
     @Test
     public void newUserRepo_FindUserByID_returns_User_countIs1() {
-        DispensedDrugsRepository dispensedDrugsRepository = new DispensedDrugsRepositoryImpl();
         DrugRepository drugRepository = new DrugRepositoryImpl();
         Drug drug = new Drug();
         drugRepository.save(drug);
@@ -38,87 +38,71 @@ public class DrugRepositoryTest {
 
         assertEquals(drug, drugRepository.findById(1));
     }
-//
-//
-//    @Test
-//    public void saveTwodispensedDrugsRepositpry_findUserByid_returns_updatedUser() {
-//        DispensedDrugsRepository dispensedDrugsRepository = new DispensedDrugsRepositoryImpl();
-//        DispensedDrugs dispensedDrugs = new DispensedDrugs();
-//        dispensedDrugsRepository.save(dispensedDrugs);
-//        assertEquals(1, dispensedDrugsRepository.count());
-//
-//        DispensedDrugs dispensedDrugsTwo = new DispensedDrugs();
-//        dispensedDrugsRepository.save(dispensedDrugsTwo);
-//
-//        int id = dispensedDrugsTwo.getId();
-//
-//        assertEquals(2, dispensedDrugsRepository.count());
-//        assertEquals(dispensedDrugsTwo, dispensedDrugsRepository.findById(id));
-//    }
-//
-//
-//    @Test
-//    public void savesameDispensedDrugRepositoryTwice_UpdatesCountIsStillIOne() {
-//        DispensedDrugsRepository dispensedDrugsRepository = new DispensedDrugsRepositoryImpl();
-//        DispensedDrugs dispensedDrugs = new DispensedDrugs();
-//        dispensedDrugsRepository.save(dispensedDrugs);
-//        assertEquals(1, dispensedDrugsRepository.count());
-//
-//        dispensedDrugsRepository.save(dispensedDrugs);
-//
-//        assertEquals(1, dispensedDrugsRepository.count());
-//    }
-//
-//
-//    @Test
-//    public void saveTwoUsers_deleteAll_findUserReturnsNull() {
-//        DispensedDrugsRepository dispensedDrugsRepository = new DispensedDrugsRepositoryImpl();
-//        DispensedDrugs dispensedDrugs = new DispensedDrugs();
-//        dispensedDrugsRepository.save(dispensedDrugs);
-//        assertEquals(1, dispensedDrugsRepository.count());
-//
-//        DispensedDrugs userTwo = new DispensedDrugs();
-//        dispensedDrugsRepository.save(userTwo);
-//        assertEquals(2, dispensedDrugsRepository.count());
-//
-//        dispensedDrugsRepository.save(dispensedDrugs);
-//        dispensedDrugsRepository.deleteAll();
-//        assertEquals(null, dispensedDrugsRepository.findById(1));
-//        assertEquals(0, dispensedDrugsRepository.count());
-//    }
-//
-//    @Test
-//    public void saveTwoUsers_deleteByID_findUserReturnsNull() {
-//        DispensedDrugsRepository dispensedDrugsRepository = new DispensedDrugsRepositoryImpl();
-//        DispensedDrugs dispensedDrugs = new DispensedDrugs();
-//        dispensedDrugsRepository.save(dispensedDrugs);
-//        assertEquals(1, dispensedDrugsRepository.count());
-//
-//
-//        int id = dispensedDrugs.getId();
-//        dispensedDrugsRepository.delete(dispensedDrugs);
-//        assertEquals(null, dispensedDrugsRepository.findById(id));
-//        assertEquals(0, dispensedDrugsRepository.count());
-//    }
-//
-//    @Test
-//    public void newDrugsRepository_setDispensedByUser_getDispensedByUser_returns_DispensedByUser() {
-//        DispensedDrugsRepository dispensedDrugsRepository = new DispensedDrugsRepositoryImpl();
-//        DispensedDrugs dispensedDrugs = new DispensedDrugs();
-//        User kobe = new User();
-//        dispensedDrugs.setDispensedBy(kobe);
-//        assertEquals(kobe, dispensedDrugs.getDispensedBy());
-//
-//    }
-//
-//    @Test
-//    public void newDrugRepository_setTime_getTime_returnsDate() {
-//        DispensedDrugsRepository dispensedDrugsRepository = new DispensedDrugsRepositoryImpl();
-//        DispensedDrugs dispensedDrugs = new DispensedDrugs();
-//        LocalDate date = LocalDate.now();
-//        dispensedDrugs.setDate(date);
-//        assertEquals(date, dispensedDrugs.getDate());
-//    }
+
+
+    @Test
+    public void saveTwodrugRepositpry_findUserByid_returns_updatedUser() {
+        DrugRepository DrugRepository = new DrugRepositoryImpl();
+        Drug drug = new Drug();
+        DrugRepository.save(drug);
+        assertEquals(1, DrugRepository.count());
+
+        Drug drugTwo = new Drug();
+        DrugRepository.save(drugTwo);
+
+        int id = drugTwo.getId();
+
+        assertEquals(2, DrugRepository.count());
+        assertEquals(drugTwo, DrugRepository.findById(id));
+    }
+
+
+    @Test
+    public void savesameDispensedDrugRepositoryTwice_UpdatesCountIsStillIOne() {
+        DrugRepository DrugRepository = new DrugRepositoryImpl();
+        Drug drug = new Drug();
+        DrugRepository.save(drug);
+        assertEquals(1, DrugRepository.count());
+
+        DrugRepository.save(drug);
+
+        assertEquals(1, DrugRepository.count());
+    }
+
+
+    @Test
+    public void saveTwoUsers_deleteAll_findUserReturnsNull() {
+        DrugRepository DrugRepository = new DrugRepositoryImpl();
+        Drug drug = new Drug();
+        DrugRepository.save(drug);
+        assertEquals(1, DrugRepository.count());
+
+        Drug userTwo = new Drug();
+        DrugRepository.save(userTwo);
+        assertEquals(2, DrugRepository.count());
+
+        DrugRepository.save(drug);
+        DrugRepository.deleteAll();
+        assertEquals(null, DrugRepository.findById(1));
+        assertEquals(0, DrugRepository.count());
+    }
+
+    @Test
+    public void saveTwoUsers_deleteByID_findUserReturnsNull() {
+        DrugRepository DrugRepository = new DrugRepositoryImpl();
+        Drug drug = new Drug();
+        DrugRepository.save(drug);
+        assertEquals(1, DrugRepository.count());
+
+
+        int id = drug.getId();
+        DrugRepository.delete(drug);
+        assertEquals(null, DrugRepository.findById(id));
+        assertEquals(0, DrugRepository.count());
+    }
+
+
+
 
 
 }

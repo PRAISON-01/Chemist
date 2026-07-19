@@ -10,6 +10,15 @@ public class AddDrugRequest {
     private BigDecimal price;
     private int id;
     private String description;
+    private int quantity;
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     public String getDrugName() {
         return drugName;

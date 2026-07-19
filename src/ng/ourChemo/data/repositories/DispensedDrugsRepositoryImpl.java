@@ -6,16 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DispensedDrugsRepositoryImpl implements DispensedDrugsRepository {
-    private int count;
-    private List<DispensedDrugs> dispensedDrugsList = new ArrayList<>();
+    private static List<DispensedDrugs> dispensedDrugsList = new ArrayList<>();
+
+    private static int count;
 
     @Override
     public DispensedDrugs save(DispensedDrugs dispensedDrugs) {
         if(isNew(dispensedDrugs))
             saveNew(dispensedDrugs);
-        else
-            updateDispensedDrugs(dispensedDrugs);
+        else updateDispensedDrugs(dispensedDrugs);
         return dispensedDrugs;
+    }
+
+    private void updateDispensedDrugs(DispensedDrugs dispensedDrugs) {
+        deleteById(dispensedDrugs.getId());
+        dispensedDrugsList.add(dispensedDrugs);
     }
 
     private void saveNew(DispensedDrugs dispensedDrugs) {
@@ -23,23 +28,21 @@ public class DispensedDrugsRepositoryImpl implements DispensedDrugsRepository {
         dispensedDrugsList.add(dispensedDrugs);
     }
 
-    private void updateDispensedDrugs(DispensedDrugs dispensedDrugs) {
-
-    }
-
     private boolean isNew(DispensedDrugs dispensedDrugs) {
-        if(dispensedDrugs.getId() == 0) {
+        if (dispensedDrugs.getId() == 0) {
             return true;
         }
         return false;
     }
 
-
+    public void deleteById(int id) {
+        DispensedDrugs dispensedDrugsToDelete = findById( id);
+        delete(dispensedDrugsToDelete);
+    }
 
     @Override
     public void delete(DispensedDrugs dispensedDrugs) {
         dispensedDrugsList.remove(dispensedDrugs);
-        --count;
     }
 
     @Override
@@ -55,10 +58,11 @@ public class DispensedDrugsRepositoryImpl implements DispensedDrugsRepository {
     @Override
     public DispensedDrugs findById(int id) {
         for(DispensedDrugs dispensedDrugs : dispensedDrugsList) {
-            if(dispensedDrugs.getId() == id) {
+            if( dispensedDrugs.getId() == id) {
                 return dispensedDrugs;
             }
         }
         return null;
     }
+
 }

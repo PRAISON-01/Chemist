@@ -8,4 +8,5 @@ public interface DrugRepository {
     void deleteAll();
     long count();
     Drug findById(int id);
+    void deleteById(int id);
 }
